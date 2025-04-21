@@ -1,0 +1,561 @@
+@import "../../../../common/assets/css/main.scss";
+
+.home-page {
+  .experiences-section {
+    padding: 50px 0px;
+    // background-color: #f6f7fb;
+
+    .heading {
+      margin-bottom: 50px;
+      h2 {
+        color: $themecolor;
+        margin: 0px 0px 10px 0px;
+        font-family: $themefont;
+        font-size: 35px;
+        font-weight: 800;
+        letter-spacing: 2px;
+        line-height: 1;
+        text-align: center;
+      }
+      p {
+        color: #000;
+        text-align: center;
+        font-family: $themefont;
+        // font-weight: 500;
+        font-size: 18px;
+        text-transform: capitalize;
+        margin-bottom: 0px;
+        // line-height: normal;
+        @include themed() {
+          color: t("whitecolor");
+        }
+      }
+    }
+    .experience-tab-div {
+      ul.nav-tabs {
+        justify-content: space-between;
+        border: none;
+        position: relative;
+        &::before {
+          content: "";
+          width: 70%;
+          height: 3px;
+          background-color: $themecolor;
+          position: absolute;
+          left: 50%;
+          transform: translate(-50%, 25px);
+        }
+        li.nav-item {
+          width: calc(100% / 4);
+          display: flex;
+          justify-content: center;
+          button {
+            width: 50px;
+            height: 50px;
+            text-align: center;
+            border-radius: 50%;
+            margin: 0px;
+            font-family: $themefont;
+            font-size: 18px;
+            font-weight: 700;
+            line-height: normal;
+            border: none;
+            outline: none;
+            box-shadow: none;
+            background-color: #fff;
+            box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+            color: #3c3e41;
+            padding: 8px;
+            position: relative;
+            border: 3px solid $themecolor;
+            z-index: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            // &.active {
+            //   color: $themecolor;
+            //   background-color: #fff;
+            //   &::after {
+            //     content: "";
+            //     bottom: -20px;
+            //     border-width: 12px 11px 0;
+            //     border-style: solid;
+            //     border-color: $themecolor transparent;
+            //     display: block;
+            //     width: 0px;
+            //     position: absolute;
+            //     left: 50%;
+            //     transform: translate(-50%, -50%);
+            //   }
+            // }
+            &:hover {
+              color: $themecolor;
+            }
+            &.active {
+              border: none;
+              background-color: $themecolor;
+              color: #fff;
+              &::after,
+              &::before {
+                content: "";
+                display: block;
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 50px;
+                height: 50px;
+                background: $themecolor;
+                border-radius: 50%;
+                z-index: -1;
+                animation: grow 1s ease-in-out infinite;
+              }
+              &::after {
+                background: $themecolor;
+                &::before {
+                  content: "";
+                  display: block;
+                  position: absolute;
+                  top: 0;
+                  left: 0;
+                  width: 100px;
+                  height: 100px;
+                  background: $themecolor;
+                  border-radius: 50%;
+                  z-index: -1;
+                  animation: grow 1s ease-in-out infinite;
+                }
+              }
+              &::before {
+                background: $themecolor;
+                animation-delay: -0.5s;
+              }
+              @keyframes grow {
+                0% {
+                  transform: scale(0.8, 0.8);
+                  opacity: 1;
+                }
+                100% {
+                  transform: scale(1.8, 1.8);
+                  opacity: 0;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    .tab-content {
+      margin-top: 45px;
+      .tab-pane {
+        .experience-content {
+          padding: 20px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-direction: column;
+          gap: 0px;
+          box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+          border-radius: 10px;
+          position: relative;
+          @include themed() {
+            background-color: t("skillbg");
+            box-shadow: t("skillshadow");
+          }
+          .header-div {
+            width: 100%;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #b2bac2;
+            .title-div {
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              gap: 10px;
+              margin-bottom: 10px;
+              h3 {
+                margin: 0px;
+                font-family: $themefont;
+                font-size: 25px;
+                font-weight: 700;
+                line-height: normal;
+                color: $themecolor;
+              }
+              p {
+                margin: 0px;
+                font-family: $themefont;
+                font-size: 17px;
+                font-weight: 600;
+                color: #3c3e41;
+                position: absolute;
+                top: 0px;
+                right: 0px;
+                background-color: $themecolor;
+                color: #fff;
+                padding: 5px 10px;
+                border-radius: 0px 10px 0px 10px;
+              }
+            }
+            .org-name {
+              .org {
+                margin-bottom: 10px;
+                h3 {
+                  margin: 0px;
+                  font-family: $themefont;
+                  font-size: 23px;
+                  font-weight: 500;
+                  line-height: normal;
+                  @include themed() {
+                    color: t("whitecolor");
+                  }
+                }
+                span {
+                  margin: 0px;
+                  font-family: $themefont;
+                  font-size: 16px;
+                  font-weight: 400;
+                  color: #3c3e41;
+                  @include themed() {
+                    color: t("light-text");
+                  }
+                }
+              }
+              a {
+                margin: 0px;
+                font-family: $themefont;
+                font-size: 18px;
+                font-weight: 400;
+                color: $themecolor;
+                text-decoration: none;
+                &:hover {
+                  color: #000;
+                  @include themed() {
+                    color: t("light-text");
+                  }
+                }
+              }
+            }
+          }
+          .roles-respons {
+            width: 100%;
+            margin-top: 20px;
+            h3 {
+              margin: 0px;
+              font-family: $themefont;
+              font-size: 20px;
+              font-weight: 400;
+              line-height: normal;
+              color: $themecolor;
+            }
+            ul {
+              margin-top: 20px;
+              list-style-type: none;
+              display: flex;
+              flex-direction: column;
+              gap: 10px;
+              margin-bottom: 0px;
+              li {
+                display: flex;
+                gap: 10px;
+                svg {
+                  font-size: 20px;
+                  margin-top: 4px;
+                  color: $themecolor;
+                }
+                p {
+                  color: #1e2125;
+                  font-family: $themefont;
+                  font-size: 18px;
+                  width: calc(100% - 35px);
+                  margin: 0px;
+                  @include themed() {
+                    color: t("whitecolor");
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 320px) and (max-width: 420px) {
+  .home-page {
+    .experiences-section {
+      .heading {
+        h2 {
+          font-size: 25px;
+          line-height: normal;
+        }
+        p {
+          font-size: 15px;
+          br {
+            display: none;
+          }
+        }
+      }
+      .experience-tab-div ul.nav-tabs {
+        &::before {
+          transform: translate(-50%, 20px);
+        }
+        li.nav-item {
+          width: 20%;
+          button {
+            width: 40px;
+            height: 40px;
+            font-size: 16px;
+            &.active {
+              &::after,
+              &::before {
+                width: 40px;
+                height: 40px;
+              }
+            }
+          }
+        }
+      }
+      .tab-content {
+        margin-top: 75px;
+        .tab-pane .experience-content {
+          padding: 12px;
+          border-radius: 10px 0px 10px 10px;
+          .header-div {
+            padding-bottom: 10px;
+            .title-div {
+              margin-bottom: 5px;
+              p {
+                top: -32px;
+                font-size: 14px;
+                border-radius: 10px 10px 0px 0px;
+              }
+              h3 {
+                font-size: 22px;
+              }
+            }
+            .org-name {
+              .org {
+                margin-bottom: 5px;
+                h3 {
+                  font-size: 18.5px;
+                }
+                span {
+                  font-size: 15px;
+                }
+              }
+            }
+            a {
+              font-size: 16px;
+            }
+          }
+          .roles-respons {
+            margin-top: 10px;
+            h3 {
+              font-size: 18px;
+            }
+            ul {
+              margin-top: 10px;
+              margin-left: 0px;
+              padding-left: 0px;
+              li {
+                p {
+                  font-size: 15px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 421px) and (max-width: 991px) {
+  .home-page {
+    .experiences-section {
+      .heading {
+        h2 {
+          font-size: 28px;
+        }
+        p {
+          font-size: 16px;
+          br {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  .home-page {
+    .experiences-section {
+      .heading {
+        h2 {
+          font-size: 32px;
+        }
+        p {
+          font-size: 17px;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 421px) and (max-width: 991px) {
+  .home-page {
+    .experiences-section {
+      .experience-tab-div ul.nav-tabs {
+        &::before {
+          transform: translate(-50%, 20px);
+          width: 75%;
+        }
+        li.nav-item {
+          width: 20%;
+          button {
+            width: 45px;
+            height: 45px;
+            font-size: 17px;
+            &.active {
+              &::after,
+              &::before {
+                width: 45px;
+                height: 45px;
+              }
+            }
+          }
+        }
+      }
+      .tab-content {
+        margin-top: 65px;
+        .tab-pane .experience-content {
+          padding: 15px;
+          border-radius: 10px 0px 10px 10px;
+          .header-div {
+            padding-bottom: 15px;
+            .title-div {
+              margin-bottom: 5px;
+              p {
+                top: -32px;
+                font-size: 15px;
+                border-radius: 10px 10px 0px 0px;
+              }
+              h3 {
+                font-size: 23px;
+              }
+            }
+            .org-name {
+              .org {
+                margin-bottom: 5px;
+                h3 {
+                  font-size: 19px;
+                }
+                span {
+                  font-size: 15.5px;
+                }
+              }
+            }
+            a {
+              font-size: 16.5px;
+            }
+          }
+          .roles-respons {
+            margin-top: 15px;
+            h3 {
+              font-size: 19px;
+            }
+            ul {
+              margin-top: 10px;
+              margin-left: 0px;
+              padding-left: 0px;
+              li {
+                p {
+                  font-size: 16px;
+                }
+                svg {
+                  margin-top: 2px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  .home-page {
+    .experiences-section {
+      .experience-tab-div ul.nav-tabs {
+        &::before {
+          transform: translate(-50%, 20px);
+          width: 75%;
+        }
+        li.nav-item {
+          width: 20%;
+          button {
+            width: 45px;
+            height: 45px;
+            font-size: 17px;
+            &.active {
+              &::after,
+              &::before {
+                width: 45px;
+                height: 45px;
+              }
+            }
+          }
+        }
+      }
+      .tab-content {
+        margin-top: 65px;
+        .tab-pane .experience-content {
+          border-radius: 10px 0px 10px 10px;
+          .header-div {
+            .title-div {
+              p {
+                top: -33px;
+                font-size: 16px;
+                border-radius: 10px 10px 0px 0px;
+              }
+              h3 {
+                font-size: 24px;
+              }
+            }
+            .org-name {
+              .org {
+                h3 {
+                  font-size: 21px;
+                }
+                span {
+                  font-size: 15.5px;
+                }
+              }
+              a {
+                font-size: 17px;
+              }
+            }
+          }
+          .roles-respons {
+            h3 {
+              font-size: 21px;
+            }
+            ul {
+              margin-top: 10px;
+
+              li {
+                p {
+                  font-size: 17px;
+                }
+                svg {
+                  margin-top: 3px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

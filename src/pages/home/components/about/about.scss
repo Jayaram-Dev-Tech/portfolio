@@ -1,0 +1,271 @@
+@import "../../../../common/assets/css/main.scss";
+.home-page {
+  .about-section {
+    padding: 50px 0px;
+    // background-color: #f6f7fb;
+    @include themed() {
+      background-color: t("transparentbg");
+    }
+    .heading {
+      margin-bottom: 25px;
+      h2 {
+        color: $themecolor;
+        margin: 0px 0px 10px 0px;
+        font-family: $themefont;
+        font-size: 35px;
+        font-weight: 800;
+        letter-spacing: 2px;
+        line-height: 1;
+        text-align: left;
+      }
+      p {
+        color: #000;
+        text-align: left;
+        font-family: $themefont;
+        font-weight: 500;
+        font-size: 18px;
+        text-transform: capitalize;
+        margin-bottom: 0px;
+        @include themed() {
+          color: t("whitecolor");
+        }
+      }
+    }
+    ul {
+      margin: 0px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      padding-left: 0px;
+      list-style-type: none;
+      li {
+        display: flex;
+        gap: 10px;
+        svg {
+          font-size: 25px;
+          margin-top: 1px;
+          color: $themecolor;
+          -webkit-animation: rotate 2s normal linear infinite;
+          animation: rotate 2s normal linear infinite;
+          @keyframes rotate {
+            0% {
+              -webkit-transform: rotate3d(0, 0, 1, 0deg);
+              transform: rotate3d(0, 0, 1, 0deg);
+            }
+            25% {
+              -webkit-transform: rotate3d(0, 0, 1, 90deg);
+              transform: rotate3d(0, 0, 1, 90deg);
+            }
+            50% {
+              -webkit-transform: rotate3d(0, 0, 1, 180deg);
+              transform: rotate3d(0, 0, 1, 180deg);
+            }
+            75% {
+              -webkit-transform: rotate3d(0, 0, 1, 270deg);
+              transform: rotate3d(0, 0, 1, 270deg);
+            }
+            100% {
+              -webkit-transform: rotate3d(0, 0, 1, 360deg);
+              transform: rotate3d(0, 0, 1, 360deg);
+            }
+          }
+        }
+        p {
+          color: #1e2125;
+          font-family: $themefont;
+          font-size: 18px;
+          width: calc(100% - 35px);
+          margin: 0px;
+          @include themed() {
+            color: t("whitecolor");
+          }
+        }
+      }
+    }
+    button {
+      cursor: pointer;
+      position: relative;
+      z-index: 2;
+      overflow: visible;
+      vertical-align: middle;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      border: none;
+      text-transform: capitalize;
+      text-align: center;
+      background-color: $themecolor;
+      color: #fff;
+      font-family: $themefont;
+      padding: 6px 25px;
+      line-height: inherit;
+      border-radius: 50px;
+      -webkit-transition: background-color 0.25s linear, color 0.4s ease-in-out;
+      transition: background-color 0.25s linear, color 0.4s ease-in-out;
+      text-decoration: none;
+      margin: 20px 0px 0px 0px;
+      overflow: hidden;
+      font-size: 17px;
+      &:before {
+        content: "";
+        position: absolute;
+        height: 100%;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        background-color: #000;
+        z-index: -1;
+        -webkit-transition: all 0.3s ease-out;
+        transition: all 0.3s ease-out;
+        border-radius: inherit;
+        @include themed() {
+          background-color: t("whitecolor");
+        }
+      }
+      &:hover {
+        color: #fff;
+        background-color: #000;
+        @include themed() {
+          background-color: t("whitecolor");
+          color: t("blackcolor");
+        }
+      }
+      &:hover::before {
+        width: 100%;
+      }
+      svg {
+        animation: shake-animation 2.5s ease infinite;
+        transform-origin: 50% 50%;
+        @keyframes shake-animation {
+          0% {
+            transform: translate(0, 0);
+          }
+          1.78571% {
+            transform: translate(3px, 0);
+          }
+          3.57143% {
+            transform: translate(0, 0);
+          }
+          5.35714% {
+            transform: translate(3px, 0);
+          }
+          7.14286% {
+            transform: translate(0, 0);
+          }
+          8.92857% {
+            transform: translate(3px, 0);
+          }
+          10.71429% {
+            transform: translate(0, 0);
+          }
+          100% {
+            transform: translate(0, 0);
+          }
+        }
+      }
+    }
+    .icons-div {
+      ul {
+        margin: 0px;
+        padding: 0px;
+        list-style-type: none;
+        li {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          font-family: $themefont;
+          font-size: 18px;
+          svg {
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 320px) and (max-width: 420px) {
+  .home-page .about-section {
+    padding: 50px 0px;
+    .heading {
+      h2 {
+        font-size: 25px;
+      }
+      p {
+        font-size: 15px;
+      }
+    }
+    .row {
+      flex-direction: column-reverse;
+    }
+    ul {
+      padding: 0px;
+      li {
+        p {
+          font-size: 15px;
+        }
+      }
+    }
+    button {
+      margin-bottom: 30px;
+      margin-left: auto;
+      margin-right: auto;
+      font-size: 15px;
+    }
+  }
+}
+
+@media only screen and (min-width: 421px) and (max-width: 991px) {
+  .home-page .about-section {
+    padding: 50px 0px;
+    .heading {
+      h2 {
+        font-size: 28px;
+      }
+      p {
+        font-size: 16px;
+      }
+    }
+    .row {
+      flex-direction: column-reverse;
+    }
+    ul {
+      padding: 0px;
+      li {
+        p {
+          font-size: 16px;
+        }
+      }
+    }
+    button {
+      margin-bottom: 30px;
+      margin-left: 0px;
+
+      font-size: 16px;
+    }
+  }
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  .home-page .about-section {
+    .heading {
+      h2 {
+        font-size: 32px;
+      }
+      p {
+        font-size: 17px;
+      }
+    }
+
+    ul {
+      li {
+        p {
+          font-size: 17px;
+        }
+      }
+    }
+    button {
+      font-size: 16px;
+    }
+  }
+}

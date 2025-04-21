@@ -1,0 +1,220 @@
+@import "../assets/css/main.scss";
+
+footer {
+  @include themed() {
+    background-color: t("themedark1");
+  }
+  .hire-me {
+    padding: 100px 0px 50px 0px;
+    background-color: #f6f7fb;
+    @include themed() {
+      background-color: t("themedark1");
+    }
+    .hire-div {
+      position: relative;
+      border-radius: 10px;
+      padding: 70px 50px 50px 50px;
+      background-image: url(./img/bg1.jpg);
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-size: 100%;
+      box-shadow: rgba(0, 0, 0, 72%) 0px 0px 0px 2000px inset;
+      h2 {
+        margin: 0px;
+        text-align: center;
+        color: #fff;
+        font-family: $themefont;
+        font-size: 30px;
+        font-weight: 700;
+        line-height: 1.5;
+      }
+      button {
+        bottom: 0;
+        left: 50%;
+        transform: translate(-50%, 15px);
+        cursor: pointer;
+        position: absolute;
+        z-index: 2;
+        overflow: visible;
+        vertical-align: middle;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        border: none;
+        text-transform: capitalize;
+        text-align: center;
+        background-color: $themecolor;
+        color: #fff;
+        font-family: $themefont;
+        padding: 5px 20px;
+        line-height: inherit;
+        border-radius: 5px;
+        -webkit-transition: background-color 0.25s linear,
+          color 0.4s ease-in-out;
+        transition: background-color 0.25s linear, color 0.4s ease-in-out;
+        text-decoration: none;
+        margin: 0px 0px 0px 0px;
+        font-size: 16px;
+        font-weight: 500;
+        &:before {
+          content: "";
+          position: absolute;
+          height: 100%;
+          bottom: 0;
+          left: 0;
+          width: 0;
+          background-color: #d92662;
+          z-index: -1;
+          -webkit-transition: all 0.3s ease-out;
+          transition: all 0.3s ease-out;
+          border-radius: inherit;
+        }
+        &:hover {
+          color: #fff;
+          background-color: #d92662;
+        }
+        &:hover::before {
+          width: 100%;
+        }
+        &::after {
+          border-style: solid;
+          border-width: 0.625rem 0.625rem 0 0;
+          border-color: $themecolor transparent transparent transparent;
+          bottom: -8px;
+          content: "";
+          left: 20px;
+          position: absolute;
+          -webkit-transition: all 0.3s ease-out;
+          transition: all 0.3s ease-out;
+        }
+        &:hover::after {
+          border-color: #d92662 transparent transparent transparent;
+        }
+      }
+      .bg-color-div {
+        width: 130px;
+        height: 130px;
+        margin: -135px auto 0px auto;
+        background-color: transparent;
+        border-radius: 50%;
+        border: 5px;
+        border-color: $themecolor;
+        border-style: inset;
+        animation: rotatebg 3s linear infinite;
+      }
+      @keyframes rotatebg {
+        0% {
+          -webkit-transform: rotate3d(0, 0, 1, 0deg);
+          transform: rotate3d(0, 0, 1, 0deg);
+        }
+        50% {
+          -webkit-transform: rotate3d(0, 0, 1, 180deg);
+          transform: rotate3d(0, 0, 1, 180deg);
+        }
+        100% {
+          -webkit-transform: rotate3d(0, 0, 1, 360deg);
+          transform: rotate3d(0, 0, 1, 360deg);
+        }
+      }
+
+      img.profile {
+        $size: 120px;
+        width: $size;
+        height: $size;
+        object-fit: cover;
+        border-radius: 50%;
+        object-position: top;
+        box-shadow: rgb(0 0 0 / 48%) 0px 0px 10px;
+        border: 3px solid #fff;
+        z-index: 1;
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translate(-50%, -60px);
+        -webkit-animation: imgani 2s infinite;
+        animation: imgani 2s infinite;
+        @keyframes imgani {
+          0% {
+            -webkit-filter: grayscale(1);
+            filter: grayscale(1);
+          }
+          30% {
+            -webkit-filter: grayscale(0.5);
+            filter: grayscale(0.5);
+          }
+          60% {
+            -webkit-filter: grayscale(0);
+            filter: grayscale(0);
+          }
+
+          100% {
+            -webkit-filter: grayscale(1);
+            filter: grayscale(1);
+          }
+        }
+      }
+    }
+  }
+
+  .copy-right {
+    position: relative;
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 0px;
+    p {
+      margin: 0px;
+      text-align: center;
+      color: #fff;
+      font-family: $themefont;
+      font-size: 17px;
+      font-weight: 500;
+      svg {
+        color: $themecolor;
+      }
+      a {
+        text-decoration: none;
+        color: #fff;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 320px) and (max-width: 420px) {
+  footer .hire-me .hire-div {
+    padding: 70px 25px 50px 25px;
+    background-size: cover;
+    h2 {
+      font-size: 21px;
+      br {
+        display: none;
+      }
+    }
+    button {
+      font-size: 15px;
+    }
+  }
+}
+@media only screen and (min-width: 421px) and (max-width: 991px) {
+  footer .hire-me .hire-div {
+    padding: 70px 25px 50px 25px;
+    h2 {
+      font-size: 23px;
+    }
+    button {
+      font-size: 15px;
+    }
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 1199px) {
+  footer .hire-me .hire-div {
+    padding: 70px 25px 50px 25px;
+    h2 {
+      font-size: 25px;
+    }
+    button {
+      font-size: 15px;
+    }
+  }
+}

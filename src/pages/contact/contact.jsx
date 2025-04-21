@@ -1,0 +1,121 @@
+// *******~ Import ~******** //
+//? React
+import { useContext } from "react";
+//? Assets
+// import Button from "react-bootstrap/Button";
+import Offcanvas from "react-bootstrap/Offcanvas";
+import Image from "react-bootstrap/Image";
+//? Components
+// import Social from "../home/components/social";
+import ThemeContext from "../../common/theme/components/contexts/themecontexts";
+// import myResumePDF from "../../common/assets/jayaram-UI-Developer.pdf";
+import myResumePDF from "../../common/assets/Jayaram-Resume.pdf";
+
+//? CSS
+import "./contact.scss";
+//? Images
+// import Photo from "./img/jayaram.jpg";
+import Photo from "./img/jayaram1.jpg";
+import BGImg from "./img/bg1.jpg";
+
+//? JSON File
+
+//? Icons
+import { FaChevronLeft } from "react-icons/fa";
+import { IoMailOutline } from "react-icons/io5";
+import { VscCallIncoming } from "react-icons/vsc";
+import { CiCalendar } from "react-icons/ci";
+import { SlGraduation } from "react-icons/sl";
+import { IoLocationSharp } from "react-icons/io5";
+import { PiToolboxLight } from "react-icons/pi";
+import { LuDownload } from "react-icons/lu";
+// *******~ Import ~******** //
+
+function Contact({ Contactshow, setContactshow }) {
+  const handleClose = () => setContactshow(false);
+  const { theme } = useContext(ThemeContext);
+  const handleDownload = () => {
+    const link = document.createElement("a");
+    link.href = myResumePDF;
+    link.download = "Jayaram-Resume.pdf"; // Change the filename as needed
+    link.click();
+  };
+  return (
+    <>
+      <Offcanvas
+        show={Contactshow}
+        onHide={handleClose}
+        placement="end"
+        className={`contact-canva ${theme === "dark" && "dark-theme"}`}
+      >
+        <Offcanvas.Body>
+          <div className="content">
+            <div className="header-img">
+              <div className="overlay"></div>
+              <Image src={BGImg} fluid />
+              <span className="back-btn" onClick={handleClose}>
+                <FaChevronLeft />
+              </span>
+            </div>
+            <div className="heading">
+              {/* <Image src={BGImg} fluid className="bg-img" /> */}
+
+              <Image src={Photo} fluid className="profile" />
+              <h3>Jayaraman S</h3>
+              {/* <p>React Native Developer | React JS Developer</p> */}
+              <p>Mobile App Developer</p>
+              <span className="location">
+                <IoLocationSharp /> Chennai, India
+              </span>
+              {/* <Social /> */}
+            </div>
+            <div className="details">
+              <ul>
+                <li>
+                  <span>
+                    <PiToolboxLight />
+                  </span>
+                  1+ Years of Experience
+                </li>
+                <li>
+                  <span>
+                    <IoMailOutline />
+                  </span>
+                  <a href="mailto:jaisidharth97@gmail.com">
+                    jaisidharth97@gmail.com
+                  </a>
+                </li>
+                <li>
+                  <span>
+                    <VscCallIncoming />
+                  </span>
+                  <a href="tel:8754711743">+91 95147 80820</a>
+                </li>
+                <li>
+                  <span>
+                    <CiCalendar />
+                  </span>
+                  23 June 1997
+                </li>
+                <li>
+                  <span>
+                    <SlGraduation />
+                  </span>
+                  B.Tech Mechanical Engineering
+                </li>
+              </ul>
+            </div>
+            <div className="download-cv">
+              <button onClick={handleDownload}>
+                <LuDownload />
+                Download CV
+              </button>
+            </div>
+          </div>
+        </Offcanvas.Body>
+      </Offcanvas>
+    </>
+  );
+}
+
+export default Contact;

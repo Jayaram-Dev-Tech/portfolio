@@ -1,0 +1,22 @@
+@import "../../common/assets/css/main.scss";
+
+.not-found {
+  padding: 100px 0px;
+  background-color: #f6f7fb;
+  @include themed() {
+    background-color: t("transparentbg");
+  }
+  h3 {
+    color: #000000;
+    margin: 0px;
+    padding: 0px;
+    font-family: $themefont;
+    font-weight: 700;
+    font-size: 60px;
+    letter-spacing: 5px;
+    text-align: center;
+    @include themed() {
+      color: t("whitecolor");
+    }
+  }
+}
